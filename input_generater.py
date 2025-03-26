@@ -16,10 +16,10 @@ age_groups = ["Teen", "Adult", "Senior"]
 countries = ["US", "UK", "Canada", "India", "Germany", "Brazil"]
 verified_status = [True, False]
 
-for user_id in range(1, 51):
+for user_id in range(1, 101):  # Generate 100 users
     user = {
         "UserID": user_id,
-        "Username": usernames[user_id - 1],
+        "Username": random.choice(usernames),  # Use random.choice instead of indexing
         "AgeGroup": random.choice(age_groups),
         "Country": random.choice(countries),
         "Verified": random.choice(verified_status)
@@ -50,8 +50,8 @@ contents = [
 posts_data = []
 base_time = datetime.now()
 
-for post_id in range(101, 201):
-    uid = random.randint(1, 10)
+for post_id in range(101, 301):  # Generate 200 posts
+    uid = random.randint(1, 100)  # Adjust UserID range to match the number of users
     timestamp = (base_time - timedelta(hours=random.randint(0, 240))).strftime("%Y-%m-%d %H:%M:%S")
     content = random.choice(contents)
     likes = random.randint(0, 150)
